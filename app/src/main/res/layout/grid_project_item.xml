@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/grid_border">
+
+            <com.mxi.buildster.utils.SquareImageView
+                android:id="@+id/grid_pro_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </com.mxi.buildster.utils.SquareImageView>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:background="#CC000000">
+
+            <com.mxi.buildster.font.MyTextviewLight
+                android:id="@+id/tv_pro_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#ffffff"
+                android:text="Niwash"
+                android:gravity="center|left"
+                android:paddingLeft="20dp"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</LinearLayout>

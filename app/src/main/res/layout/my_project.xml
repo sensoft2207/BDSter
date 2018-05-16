@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/header"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_arrow"
+            android:padding="10dp"/>
+
+        <com.mxi.buildster.font.MyTextviewLight
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="My Projects"
+            android:gravity="center|left"
+            android:paddingLeft="15dp"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="8">
+
+                <GridView
+                    android:id="@+id/grid_project"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="2"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:stretchMode="columnWidth"
+                    android:horizontalSpacing="2dp"
+                    android:verticalSpacing="2dp"
+                    android:visibility="invisible"/>
+
+                <com.mxi.buildster.font.MyTextviewLight
+                    android:id="@+id/tv_no_project"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="No Projects"
+                    android:gravity="center"
+                    android:textSize="20sp"/>
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

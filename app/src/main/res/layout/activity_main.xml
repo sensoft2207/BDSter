@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mxi.buildster.activity.MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/header">
+
+        <com.mxi.buildster.font.MyTextviewLight
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Buildster"
+            android:gravity="center|left"
+            android:paddingLeft="15dp"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:id="@+id/ln_new_project"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#001933">
+
+                <com.mxi.buildster.font.MyTextviewLight
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="25sp"
+                    android:text="Add New Project"
+                    android:textColor="@color/header"
+                    android:gravity="center"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:padding="15dp">
+
+            <LinearLayout
+                android:id="@+id/ln_my_project"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#001933">
+
+                <com.mxi.buildster.font.MyTextviewLight
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="25sp"
+                    android:text="My Project"
+                    android:textColor="@color/header"
+                    android:gravity="center"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:id="@+id/ln_assigned_project"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#001933">
+
+                <com.mxi.buildster.font.MyTextviewLight
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="25sp"
+                    android:text="Assigned Project"
+                    android:textColor="@color/header"
+                    android:gravity="center"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
