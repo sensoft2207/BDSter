@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -47,18 +48,29 @@
 
         </LinearLayout>
 
-
-        <LinearLayout
+        <com.mxi.buildster.utils.ZoomLinearLayout
+            android:id="@+id/zoom_linear_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <com.mxi.buildster.utils.TouchImageView
-                android:id="@+id/iv_issue_image"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/iv_issue_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <com.mxi.buildster.dragevent.DragLayer
+                    android:id="@+id/fl_drag_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </FrameLayout>
+
+        </com.mxi.buildster.utils.ZoomLinearLayout>
 
     </LinearLayout>
 

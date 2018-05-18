@@ -6,4 +6,15 @@
 
     <color name="header">#c0c0c0</color>
 
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorTransparentWhite">#ccfcfcfc</color>
+    <color name="colorTransparentWhite43">#66fcfcfc</color>
+
+    <color name="colorTransparentOrange43">#66f28422</color>
+    <color name="colorTransparentOrange80">#ccf28422</color>
+
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorBlackTransparent">#8c000000</color>
+
 </resources>

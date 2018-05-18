@@ -1,3 +1,4 @@
+/*
 package com.mxi.buildster.adapter;
 
 import android.support.v7.widget.RecyclerView;
@@ -11,9 +12,11 @@ import com.mxi.buildster.model.DetailData;
 
 import java.util.ArrayList;
 
+*/
 /**
  * Created by vishal on 16/5/18.
- */
+ *//*
+
 
 public class DetailRcAdapter extends RecyclerView.Adapter<DetailRcAdapter.MyViewHolder> {
 
@@ -62,3 +65,4 @@ public class DetailRcAdapter extends RecyclerView.Adapter<DetailRcAdapter.MyView
     public int getItemCount() {
         return dataSet.size();
     }}
+*/
