@@ -1,8 +1,10 @@
 package com.mxi.buildster.activity;
 
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -10,6 +12,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,6 +25,7 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -39,6 +43,7 @@ import com.mxi.buildster.utils.ZoomLinearLayout;
 import com.mxi.buildster.utils.ZoomView;
 
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -66,12 +71,12 @@ public class EditProDetailActivity extends AppCompatActivity implements  View.On
     private DragController mDragController;
     private DragLayer mDragLayer;
 
-    ImageView shape;
+    ImageView shape,iv_back;
 
     int x_touch = 0;
     int y_touch = 0;
 
-
+    byte[] byteArrayEditedIssue;
 
     ZoomLinearLayout zoomLinearLayout;
 
@@ -89,6 +94,7 @@ public class EditProDetailActivity extends AppCompatActivity implements  View.On
 
         mDragController = new DragController(this);
 
+        iv_back = (ImageView)findViewById(R.id.iv_back);
         rc_detail = (RecyclerView)findViewById(R.id.rc_detail);
 
         iv_issue_image = (ImageView)findViewById(R.id.iv_issue_image);
@@ -130,9 +136,20 @@ public class EditProDetailActivity extends AppCompatActivity implements  View.On
         File myDir = new File(root + "/saved_images/ImageBuildster.png");
         Bitmap bmp = BitmapFactory.decodeFile(myDir.getAbsolutePath());
         iv_issue_image.setImageBitmap(bmp);
+
+        clickListner();
     }
 
+    private void clickListner() {
 
+        iv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+                onBackPressed();
+            }
+        });
+    }
 
 
     @Override
@@ -235,9 +252,55 @@ public class EditProDetailActivity extends AppCompatActivity implements  View.On
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(final View view_main) {
 
-        cc.showToast("Clicked Image");
+        final Dialog d = new BottomSheetDialog(this);
+        d.setContentView(R.layout.bottom_dialog_issue);
+        d.setCancelable(true);
+        d.show();
+
+        Button btn_next_dialog = (Button)d.findViewById(R.id.btn_next_dialog);
+        Button btn_delete_dialog = (Button)d.findViewById(R.id.btn_delete_dialog);
+
+        btn_next_dialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                getEditedIssueImage();
+
+                Intent intentPostIssue = new Intent(EditProDetailActivity.this,PostIssueActivity.class);
+                intentPostIssue.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intentPostIssue.putExtra("byteArrayEditedIssue",byteArrayEditedIssue);
+                startActivity(intentPostIssue);
+                overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+                d.dismiss();
+
+
+            }
+        });
+
+        btn_delete_dialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mDragLayer.removeView(view_main);
+
+                d.dismiss();
+            }
+        });
+
+    }
+
+    private void getEditedIssueImage() {
+
+        zoomLinearLayout.destroyDrawingCache();
+        zoomLinearLayout.setDrawingCacheEnabled(true);
+        Bitmap bitmap = zoomLinearLayout.getDrawingCache();
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byteArrayEditedIssue = stream.toByteArray();
+
     }
 
     public class DetailRcAdapter extends RecyclerView.Adapter<DetailRcAdapter.MyViewHolder>  {
@@ -345,5 +408,10 @@ public class EditProDetailActivity extends AppCompatActivity implements  View.On
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+    }
 }

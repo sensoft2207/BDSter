@@ -38,6 +38,18 @@
         <activity android:name=".activity.EditProDetailActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.PostIssueActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.AssignedProjectActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.ViewDoneIssueActivty"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.FullImgDialogActivity"
+            android:screenOrientation="portrait"/>
+
 
     </application>
 

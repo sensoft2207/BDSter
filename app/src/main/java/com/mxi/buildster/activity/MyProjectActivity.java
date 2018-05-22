@@ -52,14 +52,15 @@ public class MyProjectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_project);
 
-        cc = new CommanClass(this);
-
-        db = new DatabaseHelper(this);
-
         init();
     }
 
     private void init() {
+
+        cc = new CommanClass(this);
+
+        db = new DatabaseHelper(this);
+
 
         iv_back = (ImageView)findViewById(R.id.iv_back);
         grid_project = (GridView) findViewById(R.id.grid_project);

@@ -67,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent intentAssignedProject = new Intent(MainActivity.this,AssignedProjectActivity.class);
+                startActivity(intentAssignedProject);
+                overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
 
             }
         });
